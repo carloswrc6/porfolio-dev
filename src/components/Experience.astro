@@ -1,0 +1,42 @@
+---
+import ExperienceItem from '../components/ExperienceItem.astro'
+import Linkedln from './icons/Linkedln.astro'
+
+const EXPERIENCE = [
+  {
+    date: 'June 2021 - Present',
+    title: 'Software Engineer',
+    description:
+      'Developing and maintaining web applications using JavaScript, React, and Node.js. Collaborating with cross-functional teams to deliver high-quality software solutions.',
+    link: '#',
+  },
+  {
+    date: 'January 2019 - May 2021',
+    title: 'Junior Web Developer',
+    description:
+      'Assisted in the development of e-commerce websites using HTML, CSS, and JavaScript. Implemented responsive design techniques to enhance user experience on mobile devices.',
+  },
+  {
+    date: 'June 2017 - December 2018',
+    title: 'Intern Web Developer',
+    description:
+      'Gained practical experience in front-end web development. Worked on bug fixing and small feature implementations under the guidance of senior developers.',
+  },
+  {
+    date: 'September 2015 - May 2017',
+    title: 'IT Support Specialist',
+    description:
+      'Provided technical support and troubleshooting for hardware and software issues. Managed the installation and configuration of computer systems and networks.',
+  },
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
