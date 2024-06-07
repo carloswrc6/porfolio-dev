@@ -1,0 +1,51 @@
+---
+import BrandTailwindIcon from './icons/BrandTailwind.astro'
+import BrandNextIcon from './icons/BrandNext.astro'
+
+const TAGS = {
+  NEXT: {
+    name: 'Next js',
+    class: 'bg-black text-white',
+    icon: BrandNextIcon,
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    class: 'bg-white text-[#73bcf6]',
+    icon: BrandTailwindIcon,
+  },
+}
+
+const PROYECTS = [
+  {
+    title: 'Software Engineer',
+    description:
+      'Developing and maintaining web applications using JavaScript, React, and Node.js. Collaborating with cross-functional teams to deliver high-quality software solutions.',
+    link: '#',
+    github: '#',
+    image: '/public/svgl.webp',
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+]
+---
+
+{
+  PROYECTS.map(({ image, title, description, link, github, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semiblod text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}
+            >
+              <tag.icon class="size-6" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+    </article>
+  ))
+}
