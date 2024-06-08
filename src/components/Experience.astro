@@ -1,40 +1,37 @@
 ---
-import ExperienceItem from '../components/ExperienceItem.astro'
-
-const EXPERIENCE = [
+import ExperienceItem from './ExperienceItem.astro'
+const EXPERIENCIE = [
   {
-    date: 'June 2021 - Present',
-    title: 'Software Engineer',
+    date: 'dic. 2022 - actualidad · 1 año 7 meses',
+    title: 'Supervisor I+D',
+    company: 'Innovahtec solutions',
     description:
-      'Developing and maintaining web applications using JavaScript, React, and Node.js. Collaborating with cross-functional teams to deliver high-quality software solutions.',
-    link: '#',
+      'Líder de proyecto, evalúo los requisitos del cliente, comunico al equipo las modificaciones implementadas en el entorno de pruebas antes de realizar el pase a producción.',
+    link: 'https://gpr.grupoeducad.edu.pe/',
   },
   {
-    date: 'January 2019 - May 2021',
-    title: 'Junior Web Developer',
+    date: 'jun. 2022 - nov. 2022 · 6 meses',
+    title: 'Analista de programación',
+    company: 'Inversiones CH',
     description:
-      'Assisted in the development of e-commerce websites using HTML, CSS, and JavaScript. Implemented responsive design techniques to enhance user experience on mobile devices.',
+      'Participación y mantenimiento de ERP financiero, analizando los requerimientos, especificaciones de diseño, realizando pruebas y validando los procesos de cada módulo.',
   },
   {
-    date: 'June 2017 - December 2018',
-    title: 'Intern Web Developer',
+    date: 'feb. 2022 - jul. 2022 · 6 meses',
+    title: 'Practicante de programación',
+    company: 'Municipalidad Provincial de Chiclayo - MPCH',
     description:
-      'Gained practical experience in front-end web development. Worked on bug fixing and small feature implementations under the guidance of senior developers.',
-  },
-  {
-    date: 'September 2015 - May 2017',
-    title: 'IT Support Specialist',
-    description:
-      'Provided technical support and troubleshooting for hardware and software issues. Managed the installation and configuration of computer systems and networks.',
+      'Lidere el diseño y desarrollo de sistemas web para las áreas asignadas, abordando desafíos técnicos y necesidades del negocio de manera integral.',
+    link: 'https://www.munichiclayo.gob.pe/mesaservicioti/',
   },
 ]
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol class="relative mt-16">
   {
-    EXPERIENCE.map((experience) => (
-      <li class="mb-10 ms-4">
-        <ExperienceItem {...experience} />
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
       </li>
     ))
   }
