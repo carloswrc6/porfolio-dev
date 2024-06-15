@@ -1,17 +1,102 @@
-<form class="mb-6">
-  <div class="mb-6">
-    <label
-      for="email"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Ingresa tu correo</label
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form')
+    const modal = document.getElementById('modal')
+    const modalMessage = document.getElementById('modal-message')
+    const modalClose = document.getElementById('modal-close')
+    const submitButton = document.getElementById('submit-button')
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault() // Prevenir el envío por defecto
+      submitButton.disabled = true // Deshabilitar el botón de enviar
+
+      const formData = new FormData(form)
+      const action = form.action
+      const method = form.method
+
+      fetch(action, {
+        method: method,
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            modalMessage.textContent = 'Mensaje enviado con éxito'
+            form.reset() // Opcional: resetear el formulario después de enviarlo
+          } else {
+            modalMessage.textContent = 'Hubo un problema al enviar el mensaje'
+          }
+          submitButton.disabled = false // Habilitar el botón de enviar
+          modal.classList.remove('hidden')
+        })
+        .catch((error) => {
+          modalMessage.textContent = 'Hubo un problema al enviar el mensaje'
+          submitButton.disabled = false // Habilitar el botón de enviar
+          modal.classList.remove('hidden')
+        })
+    })
+
+    modalClose.addEventListener('click', function () {
+      modal.classList.add('hidden')
+    })
+  })
+</script>
+
+<div
+  id="modal"
+  class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center"
+>
+  <div class="bg-white dark:bg-gray-800 rounded-lg p-4 max-w-sm w-full">
+    <div id="modal-message" class="text-gray-900 dark:text-white text-center">
+    </div>
+    <button
+      id="modal-close"
+      class="mt-4 text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
     >
-    <input
-      type="email"
-      id="email"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="rcasascarl@gmail.com"
-      required
-    />
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<form
+  id="contact-form"
+  class="mb-6"
+  action="https://formspree.io/f/xqkrrwqw"
+  method="POST"
+>
+  <div class="flex space-x-4 mb-6">
+    <div class="flex-1">
+      <label
+        for="nombre"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Ingresa tu nombre</label
+      >
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Carlos Rivas"
+        required
+      />
+    </div>
+    <div class="flex-1">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Ingresa tu correo</label
+      >
+      <input
+        type="email"
+        id="email"
+        name="correo"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="rcasascarl@gmail.com"
+        required
+      />
+    </div>
   </div>
   <div class="mb-6">
     <label
@@ -22,6 +107,7 @@
     <input
       type="text"
       id="subject"
+      name="asunto"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       placeholder="Título del correo"
       required
@@ -35,13 +121,63 @@
     >
     <textarea
       id="message"
+      name="mensaje"
       rows="4"
       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       placeholder="Tu mensaje..."></textarea>
   </div>
   <button
+    id="submit-button"
     type="submit"
-    class="text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
+    class="text-white bg-blue-700 hover:bg-blue-800 w-auto focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
     >Enviar mensaje</button
   >
 </form>
+
+<style>
+  .hidden {
+    display: none;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .bg-gray-800 {
+    background-color: rgba(31, 41, 55, 0.5);
+  }
+  .bg-white {
+    background-color: white;
+  }
+  .bg-opacity-50 {
+    background-opacity: 0.5;
+  }
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  .p-4 {
+    padding: 1rem;
+  }
+  .max-w-sm {
+    max-width: 24rem;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-gray-900 {
+    color: #1f2937;
+  }
+  .dark\:text-white {
+    color: white;
+  }
+  .dark\:bg-gray-800 {
+    background-color: #1f2937;
+  }
+</style>
