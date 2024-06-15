@@ -72,17 +72,17 @@ const TAGS = {
 const SKILLS = [
   {
     skills: [
+      TAGS.JAVASCRIPT,
+      TAGS.TYPESCRIPT,
       TAGS.VUE,
+      TAGS.PHP,
+      TAGS.PYTHON,
+      TAGS.SQL,
+      TAGS.MYSQL,
+      TAGS.POSTGRESQL,
       TAGS.GIT,
       TAGS.GITHUB,
-      TAGS.JAVASCRIPT,
-      TAGS.MYSQL,
-      TAGS.PHP,
-      TAGS.POSTGRESQL,
-      TAGS.PYTHON,
       TAGS.SOURCETREE,
-      TAGS.SQL,
-      TAGS.TYPESCRIPT,
     ],
   },
 ]
@@ -93,11 +93,11 @@ const SKILLS = [
     SKILLS.map(({ skills }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full">
-          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {skills.map((skill) => (
               <li class="col-span-1">
                 <span
-                  class={`block px-8 py-12 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light ${skill.class} `}
+                  class={`block px-8 py-6 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light ${skill.class} `}
                 >
                   <skill.icon class="w-12 h-12 mx-auto" />
                   {skill.name}
