@@ -42,7 +42,7 @@ const { title, company, description, link, date, actions, aptitudes } =
         actions && (
           <ul>
             <li class="pb-4 text-justify">- {actions[0]}</li>
-            <div class="actions-list hidden">
+            <div class="actions-list">
               {actions.slice(1).map((action) => (
                 <li class="pb-4 text-justify">- {action}</li>
               ))}
@@ -91,12 +91,12 @@ const { title, company, description, link, date, actions, aptitudes } =
       const button = event.target
       const actionsList =
         button.previousElementSibling.querySelector('.actions-list')
-      if (actionsList.classList.contains('hidden')) {
-        actionsList.classList.remove('hidden')
-        button.textContent = 'Ver menos'
-      } else {
-        actionsList.classList.add('hidden')
+      if (actionsList.classList.contains('show')) {
+        actionsList.classList.remove('show')
         button.textContent = 'Ver más'
+      } else {
+        actionsList.classList.add('show')
+        button.textContent = 'Ver menos'
       }
     }
 
@@ -105,3 +105,19 @@ const { title, company, description, link, date, actions, aptitudes } =
     })
   })
 </script>
+
+<style>
+  .actions-list {
+    transition:
+      max-height 0.5s ease-out,
+      opacity 0.5s ease-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .actions-list.show {
+    max-height: 1000px; /* Ajusta según sea necesario */
+    opacity: 1;
+  }
+</style>
