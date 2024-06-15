@@ -16,6 +16,7 @@ import CodeIcon from '@/components/icons/Code.astro'
 import ProfileCheck from '@/components/icons/ProfileCheck.astro'
 import Certificate from '@/components/icons/Certificate.astro'
 import BrowserCheck from '@/components/icons/BrowserCheck.astro'
+import Mail from '@/components/icons/Mail.astro'
 ---
 
 <Layout
@@ -94,7 +95,14 @@ import BrowserCheck from '@/components/icons/BrowserCheck.astro'
       <Skills />
     </SectionContainer>
     <SectionContainer id="contacto">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <Mail class="size-7" />
+        Contacto
+      </h2>
       <Contact />
     </SectionContainer>
   </div>
 </Layout>
+1
