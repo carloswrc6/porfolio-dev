@@ -1,1 +1,20 @@
-<h1>Educacion</h1>
+---
+import EducationItem from './EducationItem.astro'
+const EDUCATION = [
+  {
+    school: 'Universidad Señor de Sipán',
+    title: 'Ingeniería de sistemas',
+    date: '2017 - 2022',
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EDUCATION.map((education) => (
+      <li class="">
+        <EducationItem {...education} />
+      </li>
+    ))
+  }
+</ol>
