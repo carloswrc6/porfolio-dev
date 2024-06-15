@@ -41,10 +41,20 @@ const { title, company, description, link, date, actions, aptitudes } =
       {
         actions && (
           <ul>
-            {actions.map((action) => (
-              <li class="pb-4 text-justify">- {action}</li>
-            ))}
+            <li class="pb-4 text-justify">- {actions[0]}</li>
+            <div class="actions-list hidden">
+              {actions.slice(1).map((action) => (
+                <li class="pb-4 text-justify">- {action}</li>
+              ))}
+            </div>
           </ul>
+        )
+      }
+      {
+        actions && actions.length > 1 && (
+          <button class="toggle-button mt-4 text-blue-500 hover:text-blue-700">
+            Ver más
+          </button>
         )
       }
     </div>
@@ -74,3 +84,24 @@ const { title, company, description, link, date, actions, aptitudes } =
     }
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function toggleActions(event: any) {
+      const button = event.target
+      const actionsList =
+        button.previousElementSibling.querySelector('.actions-list')
+      if (actionsList.classList.contains('hidden')) {
+        actionsList.classList.remove('hidden')
+        button.textContent = 'Ver menos'
+      } else {
+        actionsList.classList.add('hidden')
+        button.textContent = 'Ver más'
+      }
+    }
+
+    document.querySelectorAll('.toggle-button').forEach((button) => {
+      button.addEventListener('click', toggleActions)
+    })
+  })
+</script>
