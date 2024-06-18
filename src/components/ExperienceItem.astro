@@ -1,18 +1,15 @@
 ---
-import LinkInline from './LinkInline.astro'
-
 interface Props {
   title: string
   company: string
   description: string
-  link?: string
+  // link?: string
   date: string
   actions?: Array<String>
-  aptitudes?: Array<String>
+  // aptitudes?: Array<String>
 }
 
-const { title, company, description, link, date, actions, aptitudes } =
-  Astro.props
+const { title, company, description, date, actions } = Astro.props
 ---
 
 <div
