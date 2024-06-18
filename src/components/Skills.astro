@@ -23,8 +23,20 @@ import AwsS3 from './icons/AwsS3.astro'
 import AwsDynamo from './icons/AwsDynamo.astro'
 import Pinia from './icons/pinia.astro'
 import JasperReport from './icons/jaspersoft.astro'
+import Sqlserver from './icons/sqlserver.astro'
+import Datagrip from './icons/datagrip.astro'
 
 const TAGS = {
+  SQLSERVER: {
+    name: 'SQL Server',
+    class: 'bg-blue text-blue',
+    icon: Sqlserver,
+  },
+  DATAGRIP: {
+    name: 'Datagrip',
+    class: 'bg-blue text-blue',
+    icon: Datagrip,
+  },
   JASPERREPORT: {
     name: 'JasperReport',
     class: 'bg-blue text-blue',
@@ -36,12 +48,12 @@ const TAGS = {
     icon: Pinia,
   },
   AWSDynamo: {
-    name: 'Aws DynamoDB',
+    name: 'DynamoDB',
     class: 'bg-blue text-blue',
     icon: AwsDynamo,
   },
   AWSS3: {
-    name: 'Aws S3',
+    name: 'S3',
     class: 'bg-blue text-blue',
     icon: AwsS3,
   },
@@ -156,14 +168,21 @@ const SKILLS = [
       TAGS.PHP,
       TAGS.PYTHON,
       TAGS.SQL,
-      // Framework Libreria
+      // Framework
       TAGS.VUE,
-      TAGS.PINIA,
       TAGS.QUASAR,
       TAGS.FLUTTER,
       TAGS.LARAVEL,
       TAGS.DJANGO,
+      // Libreria
+      TAGS.PINIA,
+      TAGS.APEXCHARTS,
+      TAGS.HIGHCHARTS,
+      // Otros
+      TAGS.FILEZILLA,
+      TAGS.PUTTY,
       // DB
+      TAGS.SQLSERVER,
       TAGS.MYSQL,
       TAGS.POSTGRESQL,
       TAGS.AWSDynamo,
@@ -172,13 +191,11 @@ const SKILLS = [
       TAGS.GIT,
       TAGS.GITHUB,
       TAGS.SOURCETREE,
+      // IDE
+      TAGS.DATAGRIP,
       // Otros
-      TAGS.JASPERREPORT,
-      TAGS.FILEZILLA,
-      TAGS.PUTTY,
-      TAGS.APEXCHARTS,
-      TAGS.HIGHCHARTS,
       TAGS.POSTMAN,
+      TAGS.JASPERREPORT,
     ],
   },
 ]
