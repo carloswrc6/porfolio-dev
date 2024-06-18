@@ -10,8 +10,86 @@ import Git from './icons/git.astro'
 import Github from './icons/GitHub.astro'
 import Sourcetree from './icons/sourcetree.astro'
 import Vue from './icons/vue.astro'
+import Flutter from './icons/flutter.astro'
+import Django from './icons/django.astro'
+import Laravel from './icons/laravel.astro'
+import Postman from './icons/postman.astro'
+import Putty from './icons/putty.astro'
+import Apexcharts from './icons/apexcharts.astro'
+import Highcharts from './icons/highcharts.astro'
+import Quasar from './icons/quasar.astro'
+import Filezilla from './icons/Filezilla.astro'
+import AwsS3 from './icons/AwsS3.astro'
+import AwsDynamo from './icons/AwsDynamo.astro'
+import Pinia from './icons/pinia.astro'
+import JasperReport from './icons/jaspersoft.astro'
 
 const TAGS = {
+  JASPERREPORT: {
+    name: 'JasperReport',
+    class: 'bg-blue text-blue',
+    icon: JasperReport,
+  },
+  PINIA: {
+    name: 'Pinia',
+    class: 'bg-blue text-blue',
+    icon: Pinia,
+  },
+  AWSDynamo: {
+    name: 'Aws DynamoDB',
+    class: 'bg-blue text-blue',
+    icon: AwsDynamo,
+  },
+  AWSS3: {
+    name: 'Aws S3',
+    class: 'bg-blue text-blue',
+    icon: AwsS3,
+  },
+  FILEZILLA: {
+    name: 'Filezilla',
+    class: 'bg-blue text-blue',
+    icon: Filezilla,
+  },
+  QUASAR: {
+    name: 'Quasar',
+    class: 'bg-blue text-blue',
+    icon: Quasar,
+  },
+  PUTTY: {
+    name: 'Putty',
+    class: 'bg-blue text-blue',
+    icon: Putty,
+  },
+  APEXCHARTS: {
+    name: 'Apexcharts',
+    class: 'bg-blue text-blue',
+    icon: Apexcharts,
+  },
+  HIGHCHARTS: {
+    name: 'Highcharts',
+    class: 'bg-blue text-blue',
+    icon: Highcharts,
+  },
+  POSTMAN: {
+    name: 'Postman',
+    class: 'bg-blue text-blue',
+    icon: Postman,
+  },
+  LARAVEL: {
+    name: 'Laravel',
+    class: 'bg-blue text-blue',
+    icon: Laravel,
+  },
+  DJANGO: {
+    name: 'Django',
+    class: 'bg-blue text-blue',
+    icon: Django,
+  },
+  FLUTTER: {
+    name: 'Flutter',
+    class: 'bg-blue text-blue',
+    icon: Flutter,
+  },
   VUE: {
     name: 'Vue',
     class: 'bg-blue text-blue',
@@ -72,17 +150,35 @@ const TAGS = {
 const SKILLS = [
   {
     skills: [
+      // Lenguaje
       TAGS.JAVASCRIPT,
       TAGS.TYPESCRIPT,
-      TAGS.VUE,
       TAGS.PHP,
       TAGS.PYTHON,
       TAGS.SQL,
+      // Framework Libreria
+      TAGS.VUE,
+      TAGS.PINIA,
+      TAGS.QUASAR,
+      TAGS.FLUTTER,
+      TAGS.LARAVEL,
+      TAGS.DJANGO,
+      // DB
       TAGS.MYSQL,
       TAGS.POSTGRESQL,
+      TAGS.AWSDynamo,
+      TAGS.AWSS3,
+      // CVS
       TAGS.GIT,
       TAGS.GITHUB,
       TAGS.SOURCETREE,
+      // Otros
+      TAGS.JASPERREPORT,
+      TAGS.FILEZILLA,
+      TAGS.PUTTY,
+      TAGS.APEXCHARTS,
+      TAGS.HIGHCHARTS,
+      TAGS.POSTMAN,
     ],
   },
 ]
