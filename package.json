@@ -14,7 +14,9 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/onest": "^5.0.4",
     "@fontsource/onest": "^5.0.4",
-    "astro": "^4.9.2",
+    "astro": "^4.16.1",
+    "cookie": "^0.7.0",
+    "micromatch": "^4.0.8",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
