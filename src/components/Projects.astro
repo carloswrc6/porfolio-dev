@@ -1,39 +1,105 @@
 ---
-import GitHub from "./icons/GitHub.astro"
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import Link from "./icons/Link.astro"
-import LinkButton from "./LinkButton.astro"
+import GitHub from './icons/GitHub.astro'
+import NextJS from './icons/NextJS.astro'
+import Tailwind from './icons/Tailwind.astro'
+import Link from './icons/Link.astro'
+import LinkButton from './LinkButton.astro'
+import AwsS3 from './icons/AwsS3.astro'
+import AwsAmplify from './icons/AwsAmplify.astro'
+import AwsEC2 from './icons/AwsEC2.astro'
+import AwsRDS from './icons/AwsRDS.astro'
+import Prisma from './icons/prisma.astro'
+import Redux from './icons/Redux.astro'
+import ApiGateway from './icons/ApiGateway.astro'
+import NodeJs from './icons/nodejs.astro'
+import React from './icons/react.astro'
+import Postgresql from './icons/postgresql.astro'
 
 const TAGS = {
+  POSTGRESQL: {
+    name: 'PostgreSQL',
+    class: 'bg-black text-white',
+    icon: Postgresql,
+  },
+  REACT: {
+    name: 'React',
+    class: 'bg-black text-white',
+    icon: React,
+  },
+  REDUX: {
+    name: 'Redux',
+    class: 'bg-black text-white',
+    icon: Redux,
+  },
+  PRISMA: {
+    name: 'Prisma',
+    class: 'bg-black text-white',
+    icon: Prisma,
+  },
+  NODEJS: {
+    name: 'NodeJs',
+    class: 'bg-black text-white',
+    icon: NodeJs,
+  },
+  AWS_API_GATEWAY: {
+    name: 'API Gateway',
+    class: 'bg-black text-white',
+    icon: ApiGateway,
+  },
+  AWS_EC2: {
+    name: 'EC2',
+    class: 'bg-black text-white',
+    icon: AwsEC2,
+  },
+  AWS_AMPLIFY: {
+    name: 'Amplify',
+    class: 'bg-black text-white',
+    icon: AwsAmplify,
+  },
+  AWS_RDS: {
+    name: 'RDS',
+    class: 'bg-black text-white',
+    icon: AwsRDS,
+  },
+  AWS_S3: {
+    name: 'S3',
+    class: 'bg-black text-white',
+    icon: AwsS3,
+  },
   NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
+    name: 'Next.js',
+    class: 'bg-black text-white',
     icon: NextJS,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
     icon: Tailwind,
   },
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: 'Inventory Management',
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  },
-  {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
-    description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      'Sistema de gestión de inventario con Next.js, Redux, Node y AWS usando Next.js para el frontend, estilizado con Tailwind CSS y Material UI Data Grid para el manejo de datos complejos. La gestión de estados está optimizada con Redux Toolkit, complementado con Redux Toolkit Query para la obtención de datos.',
+    link: 'https://master.d2bsyess54t9q6.amplifyapp.com/',
+    github: 'https://github.com/carloswrc6/inventory-management',
+    image:
+      'https://s3-inventory-management-qazedctgbvxcrewdsf-iopkjlmnhbnvgbh.s3.us-east-1.amazonaws.com/Inventory+Management.png',
+    tags: [
+      TAGS.NEXT,
+      TAGS.REACT,
+      TAGS.REDUX,
+      TAGS.TAILWIND,
+      TAGS.AWS_EC2,
+      TAGS.AWS_RDS,
+      TAGS.AWS_S3,
+      TAGS.AWS_API_GATEWAY,
+      TAGS.AWS_AMPLIFY,
+      TAGS.NODEJS,
+      TAGS.PRISMA,
+      TAGS.POSTGRESQL,
+    ],
   },
 ]
 ---
@@ -41,53 +107,54 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Recién llegado vs 5 años en Nueva Zelanda"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            {tags.map((tag) => (
+              <div class="mr-2 mb-2">
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </div>
+            ))}
 
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
     ))
   }
 </div>
-
-
-
