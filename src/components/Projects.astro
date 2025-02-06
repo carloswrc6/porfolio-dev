@@ -14,8 +14,44 @@ import ApiGateway from './icons/ApiGateway.astro'
 import NodeJs from './icons/Nodejs.astro'
 import React from './icons/React.astro'
 import Postgresql from './icons/postgresql.astro'
+import Redis from './icons/Redis.astro'
+import Zod from './icons/Zod.astro'
+import Shadcn from './icons/Shadcn.astro'
+import NeonDB from './icons/NeonDB.astro'
+import Upstash from './icons/Upstash.astro'
+import DrizzleORM from './icons/DrizzleORM.astro'
 
 const TAGS = {
+  DRIZZLEORM: {
+    name: 'Drizzle ORM',
+    class: 'bg-black text-white',
+    icon: DrizzleORM,
+  },
+  UPSTASH: {
+    name: 'Upstash',
+    class: 'bg-black text-white',
+    icon: Upstash,
+  },
+  ZOD: {
+    name: 'Zod',
+    class: 'bg-black text-white',
+    icon: Zod,
+  },
+  NEON: {
+    name: 'Neon',
+    class: 'bg-black text-white',
+    icon: NeonDB,
+  },
+  SHADCN: {
+    name: 'Shadcn',
+    class: 'bg-black text-white',
+    icon: Shadcn,
+  },
+  REDIS: {
+    name: 'Redis',
+    class: 'bg-black text-white',
+    icon: Redis,
+  },
   POSTGRESQL: {
     name: 'PostgreSQL',
     class: 'bg-black text-white',
@@ -85,7 +121,7 @@ const PROJECTS = [
     link: 'https://master.d2bsyess54t9q6.amplifyapp.com/',
     github: 'https://github.com/carloswrc6/inventory-management',
     image:
-      'https://s3-inventory-management-qazedctgbvxcrewdsf-iopkjlmnhbnvgbh.s3.us-east-1.amazonaws.com/Inventory+Management.png',
+      'https://ik.imagekit.io/ozhfnc8l9w/inventory-management.png?updatedAt=1738815950822',
     tags: [
       TAGS.NEXT,
       TAGS.REACT,
@@ -98,6 +134,27 @@ const PROJECTS = [
       TAGS.AWS_AMPLIFY,
       TAGS.NODEJS,
       TAGS.PRISMA,
+      TAGS.POSTGRESQL,
+    ],
+  },
+  {
+    title: 'Library Management',
+    description:
+      'Gestión de biblioteca usa Next.js, PostgreSQL y Redis, con Auth.js para autenticación y Neon como base de datos en la nube. Drizzle ORM para la gestión de datos, Upstash para rate limiting, y ImageKit para optimización de imágenes. El frontend está construido con React 19, Tailwind CSS y Shadcn UI, con formularios en React Hook Form y validaciones en Zod y Day.js para fechas.',
+    link: 'https://library-management-lovat.vercel.app/',
+    github: 'https://github.com/carloswrc6/library-management',
+    image:
+      'https://ik.imagekit.io/ozhfnc8l9w/library-management-user.png?updatedAt=1738816171151',
+    tags: [
+      TAGS.NEXT,
+      TAGS.REACT,
+      TAGS.ZOD,
+      TAGS.TAILWIND,
+      TAGS.SHADCN,
+      TAGS.UPSTASH,
+      TAGS.DRIZZLEORM,
+      TAGS.NEON,
+      TAGS.REDIS,
       TAGS.POSTGRESQL,
     ],
   },
