@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro'
+import MenuIcon from '@/components/icons/Menu.astro'
 
 const navItems = [
   {
@@ -27,31 +28,31 @@ const navItems = [
     label: 'habilidades',
     url: '/#habilidades',
   },
-  // {
-  //   title: 'Contácto',
-  //   label: 'contacto',
-  //   url: '/#contacto',
-  // },
 ]
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2 dark:bg-[#101030]"
 >
   <nav
     class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
   >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
+    <button id="menu-toggle" class="md:hidden p-2 max-[425px]:mr-auto">
+      <MenuIcon class="size-5" />
+    </button>
+    <div id="nav-items" class="hidden md:flex items-center">
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+            aria-label={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </div>
     <ThemeToggle />
   </nav>
 </header>
@@ -95,6 +96,14 @@ const navItems = [
         })
       }
     }
+
+    // Toggle menu on small screens
+    const menuToggle = document.getElementById('menu-toggle')
+    const navItemsContainer = document.getElementById('nav-items')
+
+    menuToggle.addEventListener('click', () => {
+      navItemsContainer.classList.toggle('hidden')
+    })
   })
 </script>
 
@@ -108,6 +117,38 @@ const navItems = [
   @keyframes nav-shadown {
     to {
       @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+    }
+  }
+
+  @media (max-width: 425px) {
+    header {
+      margin-top: 0;
+      background-color: rgb(244, 245, 254);
+    }
+    header nav {
+      width: 100%;
+      border-radius: 0;
+      margin-top: 0;
+      animation: none;
+    }
+
+    #nav-items {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #nav-items:not(.hidden) {
+      display: flex;
     }
   }
 </style>
