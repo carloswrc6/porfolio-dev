@@ -1,30 +1,30 @@
 ---
-import Javascript from './icons/javascript.astro'
-import Typescript from './icons/typescript.astro'
-import Python from './icons/python.astro'
-import Php from './icons/php.astro'
-import Postgresql from './icons/postgresql.astro'
-import Mysql from './icons/mysql.astro'
-import Sql from './icons/sql.astro'
-import Git from './icons/git.astro'
-import Github from './icons/GitHub.astro'
-import Sourcetree from './icons/sourcetree.astro'
-import Vue from './icons/vue.astro'
-import Flutter from './icons/flutter.astro'
-import Django from './icons/django.astro'
-import Laravel from './icons/laravel.astro'
-import Postman from './icons/postman.astro'
-import Putty from './icons/putty.astro'
-import Apexcharts from './icons/apexcharts.astro'
-import Highcharts from './icons/highcharts.astro'
-import Quasar from './icons/quasar.astro'
-import Filezilla from './icons/Filezilla.astro'
-import AwsS3 from './icons/AwsS3.astro'
-import AwsDynamo from './icons/AwsDynamo.astro'
-import Pinia from './icons/pinia.astro'
-import JasperReport from './icons/jaspersoft.astro'
-import Sqlserver from './icons/sqlserver.astro'
-import Datagrip from './icons/datagrip.astro'
+import Javascript from '@/components/icons/javascript.astro'
+import Typescript from '@/components/icons/typescript.astro'
+import Python from '@/components/icons/python.astro'
+import Php from '@/components/icons/php.astro'
+import Postgresql from '@/components/icons/postgresql.astro'
+import Mysql from '@/components/icons/mysql.astro'
+import Sql from '@/components/icons/sql.astro'
+import Git from '@/components/icons/git.astro'
+import Github from '@/components/icons/GitHub.astro'
+import Sourcetree from '@/components/icons/sourcetree.astro'
+import Vue from '@/components/icons/vue.astro'
+import Flutter from '@/components/icons/flutter.astro'
+import Django from '@/components/icons/django.astro'
+import Laravel from '@/components/icons/laravel.astro'
+import Postman from '@/components/icons/postman.astro'
+import Putty from '@/components/icons/putty.astro'
+import Apexcharts from '@/components/icons/apexcharts.astro'
+import Highcharts from '@/components/icons/highcharts.astro'
+import Quasar from '@/components/icons/quasar.astro'
+import Filezilla from '@/components/icons/Filezilla.astro'
+import AwsS3 from '@/components/icons/AwsS3.astro'
+import AwsDynamo from '@/components/icons/AwsDynamo.astro'
+import Pinia from '@/components/icons/pinia.astro'
+import JasperReport from '@/components/icons/jaspersoft.astro'
+import Sqlserver from '@/components/icons/sqlserver.astro'
+import Datagrip from '@/components/icons/datagrip.astro'
 
 const TAGS = {
   SQLSERVER: {
@@ -206,11 +206,11 @@ const SKILLS = [
     SKILLS.map(({ skills }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full">
-          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 max-[425px]:grid-cols-2 gap-4 mx-4">
             {skills.map((skill) => (
               <li class="col-span-1">
                 <span
-                  class={`block px-8 py-6 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light ${skill.class} `}
+                  class={`block px-8 py-6 text-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 hover:shadow-lg dark:hover:shadow-lg-light ${skill.class} truncate`}
                 >
                   <skill.icon class="w-12 h-12 mx-auto" />
                   {skill.name}

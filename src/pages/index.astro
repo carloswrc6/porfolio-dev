@@ -1,12 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import SectionContainer from '@/components/SectionContainer.astro'
-import AboutMe from '@/components/AboutMe.astro'
-import Experience from '@/components/Experience.astro'
+import AboutMe from '@/components/section/about-me/AboutMe.astro'
+import Experience from '@/components/section/experience/Experience.astro'
 import Hero from '@/components/Hero.astro'
-import Education from '@/components/Education.astro'
-import Skills from '@/components/Skills.astro'
-import Projects from '@/components/Projects.astro'
+import Education from '@/components/section/education/Education.astro'
+import Skills from '@/components/section/skill/Skills.astro'
+import Projects from '@/components/section/project/Projects.astro'
 import BriefCase from '@/components/icons/BriefCase.astro'
 import CodeIcon from '@/components/icons/Code.astro'
 import ProfileCheck from '@/components/icons/ProfileCheck.astro'
@@ -26,7 +26,7 @@ import BrowserCheck from '@/components/icons/BrowserCheck.astro'
   <div class="space-y-24">
     <SectionContainer id="experiencia">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white max-[425px]:justify-center"
       >
         <BriefCase class="size-8" />
         Experiencia laboral
@@ -36,7 +36,7 @@ import BrowserCheck from '@/components/icons/BrowserCheck.astro'
 
     <SectionContainer id="proyectos">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white max-[425px]:justify-center"
       >
         <BrowserCheck class="size-7" />
         Proyectos
@@ -46,7 +46,7 @@ import BrowserCheck from '@/components/icons/BrowserCheck.astro'
 
     <SectionContainer id="sobre-mi">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white max-[425px]:justify-center"
       >
         <ProfileCheck class="size-8" />
         Sobre mí
@@ -56,17 +56,16 @@ import BrowserCheck from '@/components/icons/BrowserCheck.astro'
 
     <SectionContainer id="educacion">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white max-[425px]:justify-center"
       >
         <Certificate class="size-7" />
         Educación
       </h2>
       <Education />
     </SectionContainer>
-
     <SectionContainer id="habilidades">
       <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white max-[425px]:justify-center"
       >
         <CodeIcon class="size-7" />
         Habilidades
