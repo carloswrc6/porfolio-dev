@@ -6,27 +6,37 @@ const currentLang = Astro.url.pathname.split('/')[1] || 'es'
   <button
     id="languageToggle"
     class="appearance-none border-none transition hover:text-yellow-500 dark:hover:text-yellow-400"
+    data-current-lang={currentLang}
   >
     {currentLang === 'es' ? 'EN' : 'ES'}
   </button>
 </div>
 
-<script>
-  let scrollDebounce: number | undefined
+<script is:inline>
+  function saveScrollPosition() {
+    const scrollPos = {
+      x: window.scrollX,
+      y: window.scrollY,
+      path: window.location.pathname,
+    }
+    localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
+  }
 
-  window.addEventListener('scroll', function () {
-    clearTimeout(scrollDebounce)
-    scrollDebounce = setTimeout(function () {
-      const scrollPos = {
-        x: window.scrollX,
-        y: window.scrollY,
-        path: window.location.pathname,
-      }
-      localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
-    }, 100)
-  })
+  function handleLanguageToggle(event) {
+    saveScrollPosition()
 
-  document.addEventListener('DOMContentLoaded', function () {
+    const button = event.currentTarget
+    const currentLang = button.getAttribute('data-current-lang') || 'es'
+    const newLang = currentLang === 'es' ? 'en' : 'es'
+
+    console.log('Cambiando de', currentLang, 'a', newLang)
+    localStorage.setItem('lang', newLang)
+
+    const newPath = `/${newLang}${window.location.pathname.replace(/^\/[a-z]{2}/, '')}`
+    window.location.href = newPath
+  }
+
+  function restoreScrollPosition() {
     const scrollData = localStorage.getItem('scrollPosition')
     if (scrollData) {
       const scrollPos = JSON.parse(scrollData)
@@ -40,30 +50,39 @@ const currentLang = Astro.url.pathname.split('/')[1] || 'es'
         }, 100)
       }
     }
+  }
+
+  let scrollDebounce
+  window.addEventListener('scroll', function () {
+    clearTimeout(scrollDebounce)
+    scrollDebounce = setTimeout(saveScrollPosition, 100)
   })
 
-  const languageToggle = document.getElementById('languageToggle')
+  function setupEventListeners() {
+    const languageToggle = document.getElementById('languageToggle')
+    if (languageToggle) {
+      languageToggle.removeEventListener('click', handleLanguageToggle)
+      languageToggle.addEventListener('click', handleLanguageToggle)
+      console.log('Event listener de idioma configurado correctamente')
+    } else {
+      console.error('Elemento con ID "languageToggle" no encontrado.')
+    }
+  }
 
-  if (languageToggle) {
-    console.log(' 0 languageToggle')
-    languageToggle.addEventListener('click', function () {
-      const scrollPos = {
-        x: window.scrollX,
-        y: window.scrollY,
-        path: window.location.pathname,
-      }
-      localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
+  document.addEventListener('DOMContentLoaded', function () {
+    restoreScrollPosition()
+    setupEventListeners()
+  })
 
-      const currentLang = window.location.pathname.split('/')[1] || 'es'
-      console.log(' 1 currentLang', currentLang)
-      const newLang = currentLang === 'es' ? 'en' : 'es'
-      console.log(' 2 newLang', newLang)
-      localStorage.setItem('lang', newLang)
+  document.addEventListener('astro:page-load', function () {
+    setupEventListeners()
+    console.log('Página cargada con Astro, reconfigurando listeners')
+  })
 
-      const newPath = `/${newLang}${window.location.pathname.replace(/^\/[a-z]{2}/, '')}`
-      window.location.href = newPath
-    })
-  } else {
-    console.error('Elemento con ID "languageToggle" no encontrado.')
+  if (
+    document.readyState === 'complete' ||
+    document.readyState === 'interactive'
+  ) {
+    setupEventListeners()
   }
 </script>

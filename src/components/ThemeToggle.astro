@@ -7,6 +7,7 @@ import MoonIcon from './icons/Moon.astro'
   <button
     id="theme-toggle-btn"
     class="appearance-none border-none flex hover:scale-125 transition"
+    aria-label="Cambiar tema"
   >
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
     <MoonIcon
@@ -18,24 +19,34 @@ import MoonIcon from './icons/Moon.astro'
 
 <script is:inline>
   const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined') {
-      return localStorage.getItem('theme') ?? 'dark'
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light'
   }
 
+  // Función para actualizar los iconos según el tema
   const updateIcon = (theme) => {
     const sunIcon = document.getElementById('light')
     const moonIcon = document.getElementById('dark')
+
+    if (!sunIcon || !moonIcon) return
+
     if (theme === 'light') {
-      sunIcon.style.scale = '1'
-      moonIcon.style.scale = '0'
+      sunIcon.style.transform = 'scale(1)'
+      moonIcon.style.transform = 'scale(0)'
     } else {
-      sunIcon.style.scale = '0'
-      moonIcon.style.scale = '1'
+      sunIcon.style.transform = 'scale(0)'
+      moonIcon.style.transform = 'scale(1)'
     }
+  }
+
+  const applyTheme = () => {
+    const theme = getThemePreference()
+    document.documentElement.classList.toggle('dark', theme === 'dark')
+    updateIcon(theme)
   }
 
   const toggleTheme = () => {
@@ -46,15 +57,35 @@ import MoonIcon from './icons/Moon.astro'
     updateIcon(newTheme)
   }
 
-  const applyTheme = () => {
-    const theme = getThemePreference()
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-    updateIcon(theme)
+  const setupThemeToggle = () => {
+    const toggleBtn = document.getElementById('theme-toggle-btn')
+    if (toggleBtn) {
+      toggleBtn.removeEventListener('click', toggleTheme)
+      toggleBtn.addEventListener('click', toggleTheme)
+      console.log('Event listener de tema configurado correctamente')
+    }
+
+    applyTheme()
   }
 
-  document
-    .getElementById('theme-toggle-btn')
-    .addEventListener('click', toggleTheme)
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches }) => {
+      if (!localStorage.getItem('theme')) {
+        const theme = matches ? 'dark' : 'light'
+        document.documentElement.classList.toggle('dark', theme === 'dark')
+        updateIcon(theme)
+      }
+    })
 
-  applyTheme()
+  document.addEventListener('DOMContentLoaded', setupThemeToggle)
+
+  document.addEventListener('astro:page-load', setupThemeToggle)
+
+  if (
+    document.readyState === 'complete' ||
+    document.readyState === 'interactive'
+  ) {
+    setupThemeToggle()
+  }
 </script>
