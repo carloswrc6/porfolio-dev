@@ -1,0 +1,66 @@
+---
+const currentLang = Astro.url.pathname.split('/')[1] || 'es'
+---
+
+<div class="relative ml-1 mr-2">
+  <button
+    id="languageToggle"
+    class="appearance-none border-none transition hover:text-yellow-500 dark:hover:text-yellow-400"
+  >
+    {currentLang === 'es' ? 'EN' : 'ES'}
+  </button>
+</div>
+
+<script>
+  let scrollDebounce: number | undefined
+
+  window.addEventListener('scroll', function () {
+    clearTimeout(scrollDebounce)
+    scrollDebounce = setTimeout(function () {
+      const scrollPos = {
+        x: window.scrollX,
+        y: window.scrollY,
+        path: window.location.pathname,
+      }
+      localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
+    }, 100)
+  })
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollData = localStorage.getItem('scrollPosition')
+    if (scrollData) {
+      const scrollPos = JSON.parse(scrollData)
+      const currentPath = window.location.pathname
+      const savedPathNoLang = scrollPos.path.replace(/^\/[a-z]{2}/, '')
+      const currentPathNoLang = currentPath.replace(/^\/[a-z]{2}/, '')
+
+      if (currentPathNoLang === savedPathNoLang) {
+        setTimeout(() => {
+          window.scrollTo(scrollPos.x, scrollPos.y)
+        }, 100)
+      }
+    }
+  })
+
+  const languageToggle = document.getElementById('languageToggle')
+
+  if (languageToggle) {
+    languageToggle.addEventListener('click', function () {
+      const scrollPos = {
+        x: window.scrollX,
+        y: window.scrollY,
+        path: window.location.pathname,
+      }
+      localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
+
+      const currentLang = window.location.pathname.split('/')[1] || 'es'
+      const newLang = currentLang === 'es' ? 'en' : 'es'
+      localStorage.setItem('lang', newLang)
+
+      const newPath = `/${newLang}${window.location.pathname.replace(/^\/[a-z]{2}/, '')}`
+      window.location.href = newPath
+    })
+  } else {
+    console.error('Elemento con ID "languageToggle" no encontrado.')
+  }
+</script>

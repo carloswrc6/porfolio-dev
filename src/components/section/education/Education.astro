@@ -1,27 +1,12 @@
 ---
 import EducationItem from './EducationItem.astro'
-const EDUCATION = [
-  {
-    school: 'Universidad Señor de Sipán - USS',
-    title: 'Ingeniería de sistemas',
-    date: '2017 - 2022',
-  },
-  {
-    school: 'Centro de Idiomas - USS',
-    title: 'Inglés',
-    date: '2017 - 2020',
-  },
-  {
-    school: 'Centro de Informática y Sistemas - USS',
-    title: 'Computación',
-    date: '2020 - 2021',
-  },
-]
+const { t } = Astro.props
+const education = t.education.information
 ---
 
 <ol class="relative mt-16">
   {
-    EDUCATION.map((education) => (
+    education.map((education: any) => (
       <li class="max-[640px]:mx-6">
         <EducationItem {...education} />
       </li>

@@ -1,5 +1,7 @@
 ---
 const personalImageAlt = 'Carlos Rivas'
+const { t } = Astro.props
+const about = t.about
 ---
 
 <article
@@ -9,23 +11,16 @@ const personalImageAlt = 'Carlos Rivas'
     class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
   >
     <p class="max-[640px]:mx-8">
-      Desarrollador de software con 3 años de experiencia, con sólidos
-      conocimientos en la construcción de interfaces web | mobile responsivas y
-      accesibles.
+      {about.intro}
       <br />
       <br />
-      Poseo experiencia en arquitecturas de microfrontends, integración de servicios
-      RESTful y administración de servidores. <strong
-        >Implemento procesos de CI/CD utilizando GitHub Actions y AWS
-        CodePipeline</strong
-      >, y aplico sistemáticamente principios <strong
-        >SOLID, patrones de diseño y pruebas unitarias, integración y end-to-end</strong
-      > para garantizar código de alta calidad.
+      {about.experience}
+      <strong>{about.devops}</strong>{about.experience1}
+      <strong>{about.best_practices}</strong>
+      {about.experience2}
       <br />
       <br />
-      Disfruto trabajando en equipos ágiles y me encuentro en constante desarrollo
-      profesional, actualmente enfocado en mejorar mis habilidades de comunicación
-      en inglés.
+      {about.teamwork}
       <br />
     </p>
   </div>

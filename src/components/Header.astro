@@ -1,35 +1,10 @@
 ---
-import ThemeToggle from './ThemeToggle.astro'
-// import LangToggle from './LangToggle.astro'
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
 import MenuIcon from '@/components/icons/Menu.astro'
 
-const navItems = [
-  {
-    title: 'Experiencia',
-    label: 'experiencia',
-    url: '/#experiencia',
-  },
-  {
-    title: 'Proyectos',
-    label: 'proyectos',
-    url: '/#proyectos',
-  },
-  {
-    title: 'Sobre mí',
-    label: 'sobre-mi',
-    url: '/#sobre-mi',
-  },
-  {
-    title: 'Educación',
-    label: 'educacion',
-    url: '/#educacion',
-  },
-  {
-    title: 'Habilidades',
-    label: 'habilidades',
-    url: '/#habilidades',
-  },
-]
+const { lang, t } = Astro.props
+const navItems = t.navItems
 ---
 
 <header
@@ -43,19 +18,19 @@ const navItems = [
     </button>
     <div id="nav-items" class="hidden md:flex items-center">
       {
-        navItems.map((link) => (
+        navItems.map((link: any) => (
           <a
             class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
             aria-label={link.label}
-            href={link.url}
+            href={`/${lang}${link.url}`}
           >
             {link.title}
           </a>
         ))
       }
     </div>
+    <LanguageSwitcher />
     <ThemeToggle />
-    <!-- <LangToggle /> -->
   </nav>
 </header>
 
@@ -83,7 +58,6 @@ const navItems = [
       rootMargin: '0px',
       threshold: 0.3,
     })
-
     sections.forEach((section) => {
       observer.observe(section)
     })
@@ -99,7 +73,6 @@ const navItems = [
       }
     }
 
-    // Toggle menu on small screens
     const menuToggle = document.getElementById('menu-toggle')
     const navItemsContainer = document.getElementById('nav-items')
 
@@ -108,7 +81,6 @@ const navItems = [
     })
   })
 </script>
-
 <style>
   nav {
     animation: nav-shadown 1s linear both;

@@ -1,69 +1,12 @@
 ---
 import ExperienceItem from './ExperienceItem.astro'
-const EXPERIENCIE = [
-  {
-    date: 'dic. 2023 - actualidad',
-    title: 'Full-Stack Developer',
-    company: 'INNOVAHTEC SOLUTIONS S.A.C',
-    description: '',
-    actions: [
-      'Participación en desarrollo de software web y móvil en una empresa agroexportadora ',
-      'Implementación de api de validación facial, dactilar y firma digital de documentos de reniec ',
-      'Reducción de tiempos en creación y firma de documentos en segundo plano ',
-      'Optimización de recursos en dynamodb con query utilización de índices y claves de partición',
-      'Configuración avanzada de subida de archivos al bucket de amazon s3 (Subida en segundo plano, Compresión y subida de archivos, Obtención de la URL de los archivos, Eliminación de archivos y carpetas, Subida de carpetas como archivos ZIP)',
-      'Desarrollo y mantenimiento de componentes y composables por módulo ',
-      'Optimización de consultas para reducción de tiempos',
-      'Administración del servidor para subida y gestión de proyectos en QAS y PRD',
-    ],
-    aptitudes: ['1', '2'],
-  },
-  {
-    date: 'dic. 2022 - nov. 2023 · 1 año',
-    title: 'Líder de proyecto',
-    company: 'HTEC E.I.R.L',
-    description: '',
-    link: 'https://gpr.grupoeducad.edu.pe/',
-    actions: [
-      'Lideré un proyecto que gestiona las metas de las universidades en una reconocida empresa del sector.',
-      'Implementé el inicio de sesión utilizando Microsoft como proveedor de autenticación.',
-      'Desarrollé y mantuve componentes de diagrama de Gantt, tablas y árboles para facilitar la visualización y gestión de datos.',
-      'Establecí una sincronización automática de usuarios en el servidor para mantener actualizada la información de usuarios en el sistema.',
-      'Implementé un proceso de importación masiva de usuarios para simplificar la incorporación de grandes cantidades de usuarios al sistema de manera eficiente.',
-      'Diseñé y desarrollé un dashboard con diversos módulos, incluyendo gráficos de barras, gráficos circulares, y otros elementos visuales para proporcionar una vista general de los datos.',
-      'Implementé envío automático de correos electrónicos para recordar actividades pendientes por realizar, mejorando la gestión del tiempo y la productividad del equipo.',
-      'Creé y mantuve reportes utilizando JasperReports para generar informes detallados sobre el rendimiento y otros aspectos del sistema',
-      'Implementé un mecanismo de bloqueo automático del sistema en caso de falta de pago por parte de los usuarios, asegurando la integridad y seguridad del sistema.',
-      'Administré el servidor para la carga y gestión de proyectos, tanto en el frontend como en el backend, en los entornos de QAS y PRD',
-    ],
-  },
-  {
-    date: 'jun. 2022 - nov. 2022 · 6 meses',
-    title: 'Analista de programación',
-    company: 'Inversiones CH',
-    description: '',
-    actions: [
-      'Participé en el mantenimiento del ERP financiero, analizando requerimientos y especificaciones de diseño.',
-      'Realicé pruebas y validé los procesos de cada módulo, asegurando su correcto funcionamiento.',
-    ],
-  },
-  {
-    date: 'feb. 2022 - jul. 2022 · 6 meses',
-    title: 'Practicante de programación',
-    company: 'Municipalidad Provincial de Chiclayo - MPCH',
-    description: '',
-    actions: [
-      'Desarrollé sistemas web para áreas específicas, analizando problemas y requerimientos para asegurar soluciones adecuadas.',
-      'Apoyé el desarrollo de otros sistemas, colaborando con equipos y mejorando la calidad y eficiencia de los proyectos.',
-    ],
-    link: 'https://www.munichiclayo.gob.pe/mesaservicioti/',
-  },
-]
+const { t } = Astro.props
+const experience = t.experience.information
 ---
 
 <ol class="relative mt-16 max-[640px]:mx-6">
   {
-    EXPERIENCIE.map((experiencie) => (
+    experience.map((experiencie: any) => (
       <li class="">
         <ExperienceItem {...experiencie} />
       </li>

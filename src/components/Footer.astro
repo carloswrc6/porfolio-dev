@@ -1,5 +1,8 @@
 ---
 const currentYear = new Date().getFullYear()
+
+const { t, lang } = Astro.props
+const footer = t.footer
 ---
 
 <footer
@@ -9,7 +12,8 @@ const currentYear = new Date().getFullYear()
     class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4 max-[640px]:flex-col max-[640px]:items-center max-[640px]:text-center"
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">
-      © {currentYear} Almost all rights reserved
+      © {currentYear}
+      {footer.rights}
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0 max-[640px]:flex-col max-[640px]:items-center max-[640px]:gap-y-2"
@@ -21,17 +25,23 @@ const currentYear = new Date().getFullYear()
           href="https://github.com/carloswrc6"
           class="hover:underline me-4 md:me-6"
         >
-          Calochop :3
+          {footer.github}
         </a>
       </li>
       <li>
-        <a href="/#inicio" class="hover:underline me-4 md:me-6">Inicio</a>
+        <a href={`/${lang}/#inicio`} class="hover:underline me-4 md:me-6">
+          {footer.home}</a
+        >
       </li>
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href={`/${lang}/#sobre-mi`} class="hover:underline me-4 md:me-6">
+          {footer.about}</a
+        >
       </li>
       <li>
-        <a href="/#educacion" class="hover:underline me-4 md:me-6">Educación</a>
+        <a href={`/${lang}/#educacion`} class="hover:underline me-4 md:me-6">
+          {footer.education}</a
+        >
       </li>
     </ul>
   </div>

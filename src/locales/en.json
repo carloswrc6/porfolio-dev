@@ -1,0 +1,158 @@
+{
+  "navItems": [
+    {
+      "title": "Experience",
+      "label": "experiencia",
+      "url": "/#experiencia"
+    },
+    {
+      "title": "Projects",
+      "label": "proyectos",
+      "url": "/#proyectos"
+    },
+    {
+      "title": "About me",
+      "label": "sobre-mi",
+      "url": "/#sobre-mi"
+    },
+    {
+      "title": "Education",
+      "label": "educacion",
+      "url": "/#educacion"
+    },
+    {
+      "title": "Skills",
+      "label": "habilidades",
+      "url": "/#habilidades"
+    }
+  ],
+  "hero": {
+    "availability": "Available for work",
+    "fullName": "Carlos Rivas",
+    "experience": "+3 years of experience",
+    "jobTitle": "Systems Engineer",
+    "location": "Chiclayo, Peru",
+    "bio": "Specialized in developing unique web applications."
+  },
+  "experience": {
+    "section": "Work Experience",
+    "information": [
+      {
+        "date": "Dec. 2023 - Present",
+        "title": "Full-Stack Developer",
+        "company": "INNOVAHTEC SOLUTIONS S.A.C",
+        "description": "",
+        "actions": [
+          "Participation in web and mobile software development in an agro-export company",
+          "Implementation of API for facial, fingerprint, and digital document signature validation from RENIEC",
+          "Reduced document creation and signing times in the background",
+          "Optimization of resources in DynamoDB using queries, indexes, and partition keys",
+          "Advanced configuration for uploading files to Amazon S3 bucket (background uploading, file compression and uploading, obtaining file URLs, deleting files and folders, uploading folders as ZIP files)",
+          "Development and maintenance of components and composables per module",
+          "Optimization of queries to reduce processing times",
+          "Server administration for uploading and managing projects in QAS and PRD"
+        ],
+        "skills": ["1", "2"]
+      },
+      {
+        "date": "Dec. 2022 - Nov. 2023 · 1 year",
+        "title": "Project Leader",
+        "company": "HTEC E.I.R.L",
+        "description": "",
+        "link": "https://gpr.grupoeducad.edu.pe/",
+        "actions": [
+          "Led a project that manages university goals in a well-known company in the sector.",
+          "Implemented login using Microsoft as an authentication provider.",
+          "Developed and maintained Gantt chart components, tables, and trees to facilitate data visualization and management.",
+          "Established automatic user synchronization on the server to keep user information updated.",
+          "Implemented a bulk user import process to simplify the efficient onboarding of large numbers of users into the system.",
+          "Designed and developed a dashboard with various modules, including bar charts, pie charts, and other visual elements to provide an overview of the data.",
+          "Implemented automatic email sending to remind users of pending activities, improving time management and team productivity.",
+          "Created and maintained reports using JasperReports to generate detailed insights into system performance and other key metrics.",
+          "Implemented an automatic system lock mechanism in case of non-payment by users, ensuring system integrity and security.",
+          "Managed the server for project deployment and administration, both in the frontend and backend, in the QAS and PRD environments."
+        ]
+      },
+      {
+        "date": "Jun. 2022 - Nov. 2022 · 6 months",
+        "title": "Programming Analyst",
+        "company": "Inversiones CH",
+        "description": "",
+        "actions": [
+          "Participated in the maintenance of the financial ERP, analyzing requirements and design specifications.",
+          "Performed tests and validated the processes of each module, ensuring proper functionality."
+        ]
+      },
+      {
+        "date": "Feb. 2022 - Jul. 2022 · 6 months",
+        "title": "Programming Intern",
+        "company": "Provincial Municipality of Chiclayo - MPCH",
+        "description": "",
+        "actions": [
+          "Developed web systems for specific areas, analyzing problems and requirements to ensure appropriate solutions.",
+          "Supported the development of other systems, collaborating with teams and improving the quality and efficiency of projects."
+        ],
+        "link": "https://www.munichiclayo.gob.pe/mesaservicioti/"
+      }
+    ]
+  },
+  "project": {
+    "section": "Projects",
+    "information": [
+      {
+        "title": "Inventory Management",
+        "description": "Inventory management system powered by Next.js, Redux, Node, and AWS using Next.js for the frontend, styled with Tailwind CSS and Material UI Data Grid for complex data handling. State management is optimized with the Redux Toolkit, complemented by the Redux Toolkit Query for data retrieval.",
+        "link": "https://master.d2bsyess54t9q6.amplifyapp.com/",
+        "github": "https://github.com/carloswrc6/inventory-management"
+      },
+      {
+        "title": "Library Management",
+        "description": "Library management uses Next.js, PostgreSQL, and Redis, with Auth.js for authentication and Neon as the cloud database. Drizzle ORM for data management, Upstash for rate limiting, and ImageKit for image optimization. The frontend is built with React 19, Tailwind CSS, and Shadcn UI, with forms in React Hook Form and validations in Zod and Day.js for dates.",
+        "link": "https://library-management-lovat.vercel.app/",
+        "github": "https://github.com/carloswrc6/library-management"
+      }
+    ],
+    "code": "code",
+    "preview": "preview"
+  },
+  "about": {
+    "section": "About me",
+    "intro": "Software developer with 3 years of experience, with solid knowledge in building responsive and accessible web | mobile interfaces.",
+    "experience": "I have experience in microfrontend architectures, RESTful service integration and server administration. ",
+    "devops": "I implement CI/CD processes using GitHub Actions and AWS CodePipeline,",
+    "experience1": "and consistently apply principles,",
+    "best_practices": "SOLID, design patterns and unit testing, integration and end-to-end,",
+    "experience2": "to ensure high quality code.",
+    "teamwork": "I enjoy working in agile teams and am in constant professional development, currently focused on improving my English communication skills."
+  },
+  "education": {
+    "section": "Education",
+    "information": [
+      {
+        "school": "Universidad Señor de Sipán - USS",
+        "title": "Systems Engineering",
+        "date": "2017 - 2022"
+      },
+      {
+        "school": "Centro de Idiomas - USS",
+        "title": "English",
+        "date": "2017 - 2020"
+      },
+      {
+        "school": "Centro de Informática y Sistemas - USS",
+        "title": "Computation",
+        "date": "2020 - 2021"
+      }
+    ]
+  },
+  "skill": {
+    "section": "Skills"
+  },
+  "footer": {
+    "rights": "Almost all rights reserved",
+    "github": "Github",
+    "home": "Home",
+    "about": "About me",
+    "education": "Education"
+  }
+}

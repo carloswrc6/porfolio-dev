@@ -21,6 +21,10 @@ import NeonDB from '@/components/icons/NeonDB.astro'
 import Upstash from '@/components/icons/Upstash.astro'
 import DrizzleORM from '@/components/icons/DrizzleORM.astro'
 
+const { t } = Astro.props
+const project = t.project
+const information = t.project.information
+
 const TAGS = {
   DRIZZLEORM: {
     name: 'Drizzle ORM',
@@ -115,11 +119,10 @@ const TAGS = {
 }
 const PROJECTS = [
   {
-    title: 'Inventory Management',
-    description:
-      'Sistema de gestión de inventario con Next.js, Redux, Node y AWS usando Next.js para el frontend, estilizado con Tailwind CSS y Material UI Data Grid para el manejo de datos complejos. La gestión de estados está optimizada con Redux Toolkit, complementado con Redux Toolkit Query para la obtención de datos.',
-    link: 'https://master.d2bsyess54t9q6.amplifyapp.com/',
-    github: 'https://github.com/carloswrc6/inventory-management',
+    title: information[0].title,
+    description: information[0].description,
+    link: information[0].link,
+    github: information[0].github,
     image:
       'https://ik.imagekit.io/ozhfnc8l9w/inventory-management.png?updatedAt=1738815950822',
     tags: [
@@ -138,11 +141,10 @@ const PROJECTS = [
     ],
   },
   {
-    title: 'Library Management',
-    description:
-      'Gestión de biblioteca usa Next.js, PostgreSQL y Redis, con Auth.js para autenticación y Neon como base de datos en la nube. Drizzle ORM para la gestión de datos, Upstash para rate limiting, y ImageKit para optimización de imágenes. El frontend está construido con React 19, Tailwind CSS y Shadcn UI, con formularios en React Hook Form y validaciones en Zod y Day.js para fechas.',
-    link: 'https://library-management-lovat.vercel.app/',
-    github: 'https://github.com/carloswrc6/library-management',
+    title: information[1].title,
+    description: information[1].description,
+    link: information[1].link,
+    github: information[1].github,
     image:
       'https://ik.imagekit.io/ozhfnc8l9w/library-management-user.png?updatedAt=1738816171151',
     tags: [
@@ -199,13 +201,13 @@ const PROJECTS = [
               {github && (
                 <LinkButton href={github}>
                   <GitHub class="size-6" />
-                  Code
+                  {project.code}
                 </LinkButton>
               )}
               {link && (
                 <LinkButton href={link}>
                   <Link class="size-4" />
-                  Preview
+                  {project.preview}
                 </LinkButton>
               )}
             </footer>
