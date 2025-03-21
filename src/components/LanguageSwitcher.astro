@@ -45,6 +45,7 @@ const currentLang = Astro.url.pathname.split('/')[1] || 'es'
   const languageToggle = document.getElementById('languageToggle')
 
   if (languageToggle) {
+    console.log(' 0 languageToggle')
     languageToggle.addEventListener('click', function () {
       const scrollPos = {
         x: window.scrollX,
@@ -54,7 +55,9 @@ const currentLang = Astro.url.pathname.split('/')[1] || 'es'
       localStorage.setItem('scrollPosition', JSON.stringify(scrollPos))
 
       const currentLang = window.location.pathname.split('/')[1] || 'es'
+      console.log(' 1 currentLang', currentLang)
       const newLang = currentLang === 'es' ? 'en' : 'es'
+      console.log(' 2 newLang', newLang)
       localStorage.setItem('lang', newLang)
 
       const newPath = `/${newLang}${window.location.pathname.replace(/^\/[a-z]{2}/, '')}`
